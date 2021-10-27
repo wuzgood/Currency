@@ -10,14 +10,11 @@ import UIKit
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var pbTableView: UITableView!
-    
     @IBOutlet var nbuTableView: UITableView!
-    
     
     var privatBank = [PrivatBank]()
     var nationalBank = [NationalBank]()
     
-    var isMatched = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +23,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         fetchData()
         
     }
-    
     
     private func setup() {
         pbTableView.delegate = self
@@ -65,8 +61,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         case nbuTableView:
             return nationalBank.count
         default:
-            print("Error with numbers of rows")
-            return 1
+            return 0
         }
     }
     
@@ -107,7 +102,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             return cell
             
         default:
-            print("No cell for row")
             return UITableViewCell()
         }
     }
@@ -118,6 +112,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         } else {
             return "НБУ"
         }
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        view.tintColor = UIColor(red: 204/255, green: 255/255, blue: 204/255, alpha: 1)
     }
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
@@ -161,7 +159,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         for (index, currency) in privatBank.enumerated() {
             if currency.ccy == tappedValue {
-                pbTableView.selectRow(at: IndexPath(row: index, section: 0), animated: true, scrollPosition: .middle)
+                pbTableView.selectRow(at: IndexPath(row: index + 1, section: 0), animated: true, scrollPosition: .middle)
             }
         }
     }
@@ -182,21 +180,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     private func matchCurrency(tableView: UITableView, indexPath: IndexPath) {
         
-        if isMatched {
-            isMatched = false
+        switch tableView {
+        case pbTableView:
+            matchPrivatBank(indexPath)
             
-        } else {
+        case nbuTableView:
+            matchNationalBank(indexPath)
             
-            switch tableView {
-            case pbTableView:
-                matchPrivatBank(indexPath)
-                
-            case nbuTableView:
-                matchNationalBank(indexPath)
-                
-            default:
-                return
-            }
+        default:
+            return
         }
     }
 }

@@ -52,7 +52,9 @@
                                                 <constraint firstItem="ld5-fj-1UA" firstAttribute="leading" secondItem="7gd-pi-yVy" secondAttribute="leading" constant="20" id="5l3-o4-ezl"/>
                                                 <constraint firstItem="64a-P2-oew" firstAttribute="centerY" secondItem="7gd-pi-yVy" secondAttribute="centerY" id="NF6-Bd-maW"/>
                                                 <constraint firstItem="ld5-fj-1UA" firstAttribute="centerY" secondItem="7gd-pi-yVy" secondAttribute="centerY" id="P6s-zv-uGU"/>
+                                                <constraint firstItem="Vvm-lv-F6k" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ld5-fj-1UA" secondAttribute="trailing" constant="8" symbolic="YES" id="dG9-3Q-kZg"/>
                                                 <constraint firstItem="Vvm-lv-F6k" firstAttribute="centerX" secondItem="7gd-pi-yVy" secondAttribute="centerX" id="j7d-6F-8Nl"/>
+                                                <constraint firstItem="64a-P2-oew" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Vvm-lv-F6k" secondAttribute="trailing" constant="8" symbolic="YES" id="jgi-Wp-sHK"/>
                                                 <constraint firstAttribute="trailing" secondItem="64a-P2-oew" secondAttribute="trailing" constant="20" id="mNj-gl-hSh"/>
                                                 <constraint firstItem="Vvm-lv-F6k" firstAttribute="centerY" secondItem="7gd-pi-yVy" secondAttribute="centerY" id="pDR-YN-D6H"/>
                                             </constraints>
@@ -100,6 +102,8 @@
                                                 <constraint firstItem="qFM-jS-gtv" firstAttribute="leading" secondItem="L9T-1C-zrS" secondAttribute="leading" constant="20" id="e3l-4a-p5q"/>
                                                 <constraint firstItem="Fwk-F5-NqL" firstAttribute="centerY" secondItem="L9T-1C-zrS" secondAttribute="centerY" id="iLe-o7-qTX"/>
                                                 <constraint firstAttribute="bottom" secondItem="qFM-jS-gtv" secondAttribute="bottom" constant="5" id="mNR-gq-wYv"/>
+                                                <constraint firstItem="Fwk-F5-NqL" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="GZc-hY-4wN" secondAttribute="trailing" constant="8" symbolic="YES" id="nV2-tY-10Z"/>
+                                                <constraint firstItem="Fwk-F5-NqL" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qFM-jS-gtv" secondAttribute="trailing" constant="8" symbolic="YES" id="oJi-Ek-C2f"/>
                                                 <constraint firstAttribute="trailing" secondItem="Fwk-F5-NqL" secondAttribute="trailing" constant="20" id="sMJ-lI-71z"/>
                                             </constraints>
                                         </tableViewCellContentView>
