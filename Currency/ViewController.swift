@@ -57,7 +57,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch tableView {
         case pbTableView:
-            return privatBank.count
+            return privatBank.count + 1
         case nbuTableView:
             return nationalBank.count
         default:
@@ -131,12 +131,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch tableView {
         case pbTableView:
-            matchCurrency(tableView: tableView, indexPath: indexPath)
-            print("table: \(tableView), cell: \(indexPath.row)")
-        case nbuTableView:
-            matchCurrency(tableView: tableView, indexPath: indexPath)
-            print("table: \(tableView), cell: \(indexPath.row)")
+            matchPrivatBank(indexPath)
             
+        case nbuTableView:
+            matchNationalBank(indexPath)
+
         default:
             return
         }
@@ -175,20 +174,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             if currency.cc == tappedValue {
                 nbuTableView.selectRow(at: IndexPath(row: index, section: 0), animated: true, scrollPosition: .middle)
             }
-        }
-    }
-    
-    private func matchCurrency(tableView: UITableView, indexPath: IndexPath) {
-        
-        switch tableView {
-        case pbTableView:
-            matchPrivatBank(indexPath)
-            
-        case nbuTableView:
-            matchNationalBank(indexPath)
-            
-        default:
-            return
         }
     }
 }
